@@ -29,6 +29,18 @@ from metashare.recommendations.models import ResourceCountPair, \
 LOGGER = logging.getLogger(__name__)
 LOGGER.addHandler(LOG_HANDLER)
 
+# Default identifier class
+class DOItekst(object):
+    def __init__(self):
+        self.metapid = 'meta-PID:http://hdl.handle.net/11297/METADATA-PID-PLACEHOLDER'
+        self.pid = 'PID:http://hdl.handle.net/11297/RESOURCE-PID-PLACEHOLDER'
+        self.doi = 'DOI:doi:10.15155/TY.DOI-PLACEHOLDER'
+    def out(self):
+        return [self.metapid,
+                self.pid,
+                self.doi
+                ]
+
 # Note: we have to use the '^' and '$' anchors in the following regular
 # expressions as for some reason the RegexValidator does not try to match the
 # whole string against the regex but it just searches for a matching substring;
